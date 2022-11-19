@@ -1,18 +1,29 @@
 services:
   db:
-    image: postgres:14.1-alpine
-    container_name: greenbee_database
-    restart: unless-stopped
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
     ports:
       - '${DB_PORT}:${DB_PORT}'
-    environment:
-      POSTGRES_USER: '${DB_USER}'
-      POSTGRES_PASSWORD: '${DB_PASSWORD}'
-      POSTGRES_DB: '${DB_NAME}'
     networks:
       - app-network
-    volumes:
-      - db_data:/var/lib/postgresql/data
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      PMA_ARBITRARY: '1'
+      PMA_HOST: db
+      PMA_PORT: ${DB_PORT}
+      PMA_USER: ${DB_USER}
+      PMA_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - '8888:80'
 
   redis:
     container_name: greenbee_redis
