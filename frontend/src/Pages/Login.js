@@ -81,7 +81,6 @@ const Login = () => {
             updateErrormsg("Email is not a valid email.")
             setError(true)
         }
-
     }
 
     const handleRegister = async (event) => {
@@ -119,7 +118,7 @@ const Login = () => {
     }
 
     return(
-        <div>
+        <Box>
             <TabPanel value={tab} index={0}>
                 <Stack
                 direction="column"
@@ -266,7 +265,7 @@ const Login = () => {
                     </Box>
                 </Stack>
             </TabPanel>
-        </div>
+        </Box>
     )
 }
 

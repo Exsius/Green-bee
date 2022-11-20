@@ -221,12 +221,56 @@ export const Navbar = (props) => {
                 {
                     name: "Discover",
                     link: "/dashboard",
+                    icon: <FlareIcon color="primary" />
+                },
+                {
+                    name: "Interests",
+                    link: "/interests",
+                    icon: <PlaceIcon color="inherit" />
+                },
+            ],
+            tailComponents: [
+                <IconButton
+                size="large"
+                onClick={(event) => {setActiveMenu('account'); handleMenuOpen(event)}}
+                >
+                    <Avatar
+                        alt='profile picture'
+                        src={userInfo.pfp}
+                    />
+                </IconButton>
+            ]
+        },
+        '/interests': {
+            name: 'Green Bee',
+            mobileComponents: mobileComponents[0],
+            headComponents: (
+                <Typography
+                variant="h5"
+                sx={{
+                    color: "secondarydark.main",
+                    mx: 1,
+                    my: 'auto'
+                }}
+                >
+                    {pageTitle}
+                </Typography>
+            ),
+            navlinks: [
+                {
+                    name: "Settings",
+                    link: "/dashboard",
+                    icon: <AccountCircleRoundedIcon color="inherit" />
+                },
+                {
+                    name: "Discover",
+                    link: "/dashboard",
                     icon: <FlareIcon color="inherit" />
                 },
                 {
-                    name: "Favorites",
-                    link: "/dashboard",
-                    icon: <PlaceIcon color="inherit" />
+                    name: "Interests",
+                    link: "/interests",
+                    icon: <PlaceIcon color="primary" />
                 },
             ],
             tailComponents: [
@@ -519,7 +563,7 @@ export const Navbar = (props) => {
                     width: { sm: `calc(100% - ${drawerWidth}px)`, },
                     mt: '64px',
                     mr: { sm: loggedin && '16px' },
-                    height: loggedin ? { xs: 'calc(100vh -  136px)', sm: 'calc(100vh - 164px)', md: 'calc(100vh - 192px)' } : 'calc(100vh - 160px)',
+                    height: loggedin ? { xs: 'calc(100vh -  120px)', sm: 'calc(100vh - 164px)', md: 'calc(100vh - 192px)' } : 'calc(100vh - 65px)',
                     borderRadius: { sm: '12px 12px 0px 0px', md: '12px' },
                     backgroundImage: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)',
                     //backgroundColor: 'neutral.main',
