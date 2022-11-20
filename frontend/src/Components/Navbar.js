@@ -221,12 +221,56 @@ export const Navbar = (props) => {
                 {
                     name: "Discover",
                     link: "/dashboard",
+                    icon: <FlareIcon color="primary" />
+                },
+                {
+                    name: "Interests",
+                    link: "/interests",
+                    icon: <PlaceIcon color="inherit" />
+                },
+            ],
+            tailComponents: [
+                <IconButton
+                size="large"
+                onClick={(event) => {setActiveMenu('account'); handleMenuOpen(event)}}
+                >
+                    <Avatar
+                        alt='profile picture'
+                        src={userInfo.pfp}
+                    />
+                </IconButton>
+            ]
+        },
+        '/interests': {
+            name: 'Green Bee',
+            mobileComponents: mobileComponents[0],
+            headComponents: (
+                <Typography
+                variant="h5"
+                sx={{
+                    color: "secondarydark.main",
+                    mx: 1,
+                    my: 'auto'
+                }}
+                >
+                    {pageTitle}
+                </Typography>
+            ),
+            navlinks: [
+                {
+                    name: "Settings",
+                    link: "/dashboard",
+                    icon: <AccountCircleRoundedIcon color="inherit" />
+                },
+                {
+                    name: "Discover",
+                    link: "/dashboard",
                     icon: <FlareIcon color="inherit" />
                 },
                 {
-                    name: "Favorites",
-                    link: "/dashboard",
-                    icon: <PlaceIcon color="inherit" />
+                    name: "Interests",
+                    link: "/interests",
+                    icon: <PlaceIcon color="primary" />
                 },
             ],
             tailComponents: [
