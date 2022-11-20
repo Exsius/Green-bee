@@ -24,13 +24,25 @@ const Dashboard = () => {
 
     const data = [
         {
-            pic: 'https://currentboutique.com/blogs/cravingcurrent/what-s-the-difference-between-a-thrift-shop-and-a-consignment-store',
+            pic: 'https://cdn.shopify.com/s/files/1/0269/9644/1191/files/Secondhand_Shopping_2048x2048.jpg?v=1628535295',
             name: '17th Avenue Thrift Store',
             distance: '5.6 km',
             address: '2631 17 Ave SW, Calgary, AB T3E 0A5',
             desc: 'Old-school, fresh farmer produce is provided in an indoor marketplace with over 75 local vendors offering produce, flowers, crafts & more.'
         }
     ]
+
+    const imageContainerStyle = {
+        flex: 1,
+        overflow: 'hidden',
+    }
+
+    const imageStyle = {
+        flex: 1,
+        width: '100%',
+        height: '275px',
+        resizeMode: 'contain',
+    }
 
     return(
         <Box
@@ -47,9 +59,11 @@ const Dashboard = () => {
                             <Stack
                             spacing={2}
                             >
-                                <Box
-                                sx={{ backgroundColor: 'cyan', width: '100%', paddingBottom: '100%', borderRadius: '24px' }}
-                                />
+                                <Paper
+                                sx={{ backgroundColor: 'transparent', width: '307px', borderRadius: '24px' }} style={imageContainerStyle} elevation={4}
+                                >
+                                    <img src={data[0].pic} alt={data[0].name} style={imageStyle} />
+                                </Paper> 
                                 <Typography
                                 >
                                     Place Titles
